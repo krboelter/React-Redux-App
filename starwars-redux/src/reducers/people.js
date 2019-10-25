@@ -5,22 +5,24 @@ import {
 } from "../actions/people";
 
 const initialState = {
-    person: null,
+    people: {},
     isLoading: false,
     error: null
 }
 
-function reducer(state = initialState, action) {
+export function reducer(state = initialState, action) {
     switch(action.type) {
         case FETCH_PEOPLE_START:
             return {
                 ...state,
-                isLoading: true
+                isLoading: true,
+                error: null
             }
         case FETCH_PEOPLE_SUCCESS:
             return {
                 ...state,
-                person: action.payload,
+                people: action.payload,
+                error: null,
                 isLoading: false
             }
         case FETCH_PEOPLE_ERROR:
@@ -30,6 +32,6 @@ function reducer(state = initialState, action) {
                 isLoading: false
             }
         default:
-            state
+            return state
     }
 }

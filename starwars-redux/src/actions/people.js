@@ -1,19 +1,20 @@
 import axios from "axios";
 
 export const FETCH_PEOPLE_START = "FETCH_PEOPLE_START";
-export const FETCH_PEOPLE_END = "FETCH_PEOPLE_SUCCESS";
-export const FETCH_PEOPEL_ERROR = "FETCH_PEOPLE_ERROR";
+export const FETCH_PEOPLE_SUCCESS = "FETCH_PEOPLE_SUCCESS";
+export const FETCH_PEOPLE_ERROR = "FETCH_PEOPLE_ERROR";
 
 export function fetchPeople() {
     return dispatch => {
-        dispatch({ type: FETCH_DOG_START })
+        dispatch({ type: FETCH_PEOPLE_START })
         
-        axios.get(`http://swapi.co/api/people`)
+        axios.get(`https://swapi.co/api/people/1/`)
             .then(res => {
-                dispatch({ type: FETCH_DOG_SUCCESS, payload: res })
+                console.log('success', res.data)
+                dispatch({ type: FETCH_PEOPLE_SUCCESS, payload: res.data })
             })
             .catch(err => {
-                dispatch({ type: FETCH_DOG_ERROR, payload: err})
+                dispatch({ type: FETCH_PEOPLE_ERROR, payload: err.response})
             })
     }
 

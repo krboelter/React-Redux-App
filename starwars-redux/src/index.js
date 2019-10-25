@@ -5,10 +5,13 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 import App from './App';
+import { reducer as peopleReducer } from "./reducers/people";
 
-const reducer = combineReducers({})
+const rootReducer = combineReducers({
+    people: peopleReducer
+})
 
-const store = createStore(reducer, applyMiddleware(thunk, logger));
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
     <Provider store={store}>
