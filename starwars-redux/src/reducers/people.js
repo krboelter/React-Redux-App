@@ -5,7 +5,7 @@ import {
 } from "../actions/people";
 
 const initialState = {
-    people: {},
+    people: [],
     isLoading: false,
     error: null
 }

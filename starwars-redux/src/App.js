@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 import { connect } from "react-redux";
 import { fetchPeople } from "./actions/people";
-// import Selectors from './components/Selectors';
-import Person from "./components/Person";
+import PersonList from "./components/PersonList";
 
 function App(props) {
 
@@ -14,8 +13,7 @@ function App(props) {
   return (
     <div className="App">
       <h1>Select a character to see their information!</h1>
-      {/* <Selectors people={props.people} /> */}
-      <Person person={props.people} />
+      <PersonList people={props.people} />
     </div>
   );
 }

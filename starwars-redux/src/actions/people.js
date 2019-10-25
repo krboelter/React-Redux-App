@@ -8,10 +8,10 @@ export function fetchPeople() {
     return dispatch => {
         dispatch({ type: FETCH_PEOPLE_START })
         
-        axios.get(`https://swapi.co/api/people/1/`)
+        axios.get(`https://swapi.co/api/people/`)
             .then(res => {
-                console.log('success', res.data)
-                dispatch({ type: FETCH_PEOPLE_SUCCESS, payload: res.data })
+                console.log('success', res.data.results)
+                dispatch({ type: FETCH_PEOPLE_SUCCESS, payload: res.data.results })
             })
             .catch(err => {
                 dispatch({ type: FETCH_PEOPLE_ERROR, payload: err.response})

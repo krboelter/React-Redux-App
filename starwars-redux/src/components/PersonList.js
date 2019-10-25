@@ -1,10 +1,11 @@
 import React from 'react';
+import Person from './Person';
 
-export default function Selectors(props) {
+export default function PersonList(props) {
     return (
         <>
             {props.people.map(person => (
-                <button className={person.name}>{person.name}</button>
+                <Person person={person} />
             ))}
         </>
     )
